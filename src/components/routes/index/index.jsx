@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import applyStyles from 'react-css-modules';
 import styles from './index.less';
 import { autobind } from 'core-decorators';
-import RangeSlider from './range-slider/';
+import RangeSelector from './range-selector';
 
 export default
 @applyStyles(styles)
@@ -12,15 +12,14 @@ class IndexPage extends Component {
         alert('you clicked me!');
     }
 
-    onChange(low, high) {
-        console.debug([low, high]);
+    onChange(range) {
+        console.debug(range.toString());
     }
-
 
     render() {
         return (
             <div>
-                <RangeSlider onChange={this.onChange}/>
+                <RangeSelector range={[150, -250]} onChange={this.onChange}/>
             </div>
         );
     }
